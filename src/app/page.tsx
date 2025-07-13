@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { PromptCard } from "@/components/prompt-card"
 import { LayoutWrapper } from "@/components/layout-wrapper"
-import { ArrowRight, Sparkles, TrendingUp, Shield } from "lucide-react"
+import { ArrowRight, Sparkles, TrendingUp, Shield, Zap, Users, Star, DollarSign } from "lucide-react"
 import Link from "next/link"
 
 // Mock data for demonstration
@@ -75,122 +75,139 @@ const FEATURED_PROMPTS = [
 ];
 
 const CATEGORIES = [
-  { name: "Marketing", count: 234, icon: TrendingUp },
-  { name: "Sales", count: 189, icon: Sparkles },
-  { name: "Development", count: 156, icon: Shield },
-  { name: "Support", count: 143, icon: Shield },
-  { name: "Analytics", count: 98, icon: TrendingUp },
-  { name: "E-commerce", count: 87, icon: Sparkles },
+  { name: "Marketing", count: 234, icon: TrendingUp, color: "from-blue-500 to-cyan-500" },
+  { name: "Sales", count: 189, icon: Zap, color: "from-purple-500 to-pink-500" },
+  { name: "Development", count: 156, icon: Shield, color: "from-green-500 to-emerald-500" },
+  { name: "Support", count: 143, icon: Users, color: "from-orange-500 to-red-500" },
+  { name: "Analytics", count: 98, icon: TrendingUp, color: "from-indigo-500 to-purple-500" },
+  { name: "E-commerce", count: 87, icon: Sparkles, color: "from-pink-500 to-rose-500" },
+];
+
+const STATS = [
+  { label: "Active Prompts", value: "10k+", icon: Sparkles },
+  { label: "Satisfied Users", value: "50k+", icon: Users },
+  { label: "Average Rating", value: "4.8", icon: Star },
+  { label: "Seller Earnings", value: "$2M+", icon: DollarSign },
 ];
 
 export default function HomePage() {
   return (
     <LayoutWrapper>
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-24 lg:py-32">
-        {/* Background gradient mesh */}
+      <section className="relative overflow-hidden py-16 lg:py-24">
+        {/* Background Elements */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-secondary/5" />
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-accent/3" />
+          <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-gradient-to-br from-primary/8 to-transparent blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-gradient-to-tr from-accent/8 to-transparent blur-3xl" />
         </div>
         
         <div className="container relative z-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              The B2B Marketplace for{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mb-6 inline-flex items-center rounded-full border bg-background/50 px-3 py-1.5 text-sm backdrop-blur-sm">
+              <Sparkles className="mr-2 h-3.5 w-3.5 text-primary" />
+              The premier B2B marketplace for AI prompts
+            </div>
+            
+            <h1 className="mb-6 text-4xl font-bold tracking-tight text-balance sm:text-5xl md:text-6xl lg:text-7xl">
+              Buy & Sell{" "}
+              <span className="gradient-text">
                 AI Prompts
               </span>
+              <br />
+              That Actually Work
             </h1>
-            <p className="mb-8 text-lg text-muted-foreground sm:text-xl">
-              Buy and sell optimized AI prompts for marketing, sales, development, and more. 
-              Save hours of testing and get proven results instantly.
+            
+            <p className="mb-8 text-lg text-muted-foreground text-balance sm:text-xl max-w-3xl mx-auto">
+              Save hours of testing and get proven results instantly. Join thousands of professionals 
+              buying and selling optimized AI prompts for marketing, sales, development, and more.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button size="lg" asChild>
-                <Link href="/marketplace">
-                  Browse Prompts <ArrowRight className="ml-2 h-4 w-4" />
+            
+            <div className="flex flex-col gap-3 sm:flex-row sm:justify-center mb-12">
+              <Button size="lg" className="group">
+                <Link href="/marketplace" className="flex items-center">
+                  Browse Prompts 
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline">
                 <Link href="/sell">Start Selling</Link>
               </Button>
             </div>
           </div>
           
           {/* Stats */}
-          <div className="mt-16 grid grid-cols-2 gap-8 sm:grid-cols-4">
-            <div className="text-center">
-              <p className="text-3xl font-bold">10k+</p>
-              <p className="text-sm text-muted-foreground">Active Prompts</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold">50k+</p>
-              <p className="text-sm text-muted-foreground">Satisfied Users</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold">4.8</p>
-              <p className="text-sm text-muted-foreground">Average Rating</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold">$2M+</p>
-              <p className="text-sm text-muted-foreground">Seller Earnings</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Categories Section */}
-      <section className="py-16">
-        <div className="container">
-          <div className="mb-8 flex items-center justify-between">
-            <h2 className="text-3xl font-bold">Browse by Category</h2>
-            <Button variant="ghost" asChild>
-              <Link href="/categories">
-                View All <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-          
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {CATEGORIES.map((category) => {
-              const Icon = category.icon;
+          <div className="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4">
+            {STATS.map((stat) => {
+              const Icon = stat.icon;
               return (
-                <Link
-                  key={category.name}
-                  href={`/marketplace?category=${category.name.toLowerCase()}`}
-                  className="group rounded-lg border bg-card p-6 transition-all hover:shadow-md hover:scale-[1.02] hover:border-primary/20"
-                >
-                  <div className="mb-4 flex items-center justify-between">
-                    <Icon className="h-8 w-8 text-primary" />
-                    <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1" />
+                <div key={stat.label} className="text-center group">
+                  <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/15">
+                    <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mb-1 text-lg font-semibold">{category.name}</h3>
-                  <p className="text-sm text-muted-foreground">{category.count} prompts</p>
-                </Link>
+                  <p className="text-2xl font-bold sm:text-3xl">{stat.value}</p>
+                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                </div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Featured Prompts */}
-      <section className="relative py-16">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-muted/30 via-muted/50 to-muted/30" />
+      {/* Categories Section */}
+      <section className="py-16 lg:py-20">
         <div className="container">
-          <div className="mb-8 flex items-center justify-between">
-            <div>
-              <h2 className="text-3xl font-bold">Featured Prompts</h2>
-              <p className="mt-2 text-muted-foreground">
-                Hand-picked prompts with exceptional performance
-              </p>
-            </div>
-            <Button variant="ghost" asChild>
-              <Link href="/marketplace?sort=featured">
-                View All <ArrowRight className="ml-2 h-4 w-4" />
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-balance sm:text-4xl">Browse by Category</h2>
+            <p className="text-lg text-muted-foreground text-balance max-w-2xl mx-auto">
+              Discover prompts tailored to your specific needs across various industries and use cases
+            </p>
+          </div>
+          
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {CATEGORIES.map((category) => {
+              const Icon = category.icon;
+              return (
+                <Link
+                  key={category.name}
+                  href={`/marketplace?category=${category.name.toLowerCase()}`}
+                  className="group relative overflow-hidden rounded-lg border bg-card p-6 transition-all duration-300 hover:shadow-large hover:-translate-y-1"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 transition-opacity group-hover:opacity-5`} />
+                  <div className="relative">
+                    <div className="mb-4 flex items-center justify-between">
+                      <div className={`flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${category.color} text-white shadow-sm`}>
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <ArrowRight className="h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-foreground" />
+                    </div>
+                    <h3 className="mb-2 text-lg font-semibold">{category.name}</h3>
+                    <p className="text-sm text-muted-foreground">{category.count} prompts available</p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Button variant="outline" size="lg">
+              <Link href="/categories" className="flex items-center">
+                View All Categories <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Prompts */}
+      <section className="relative py-16 lg:py-20">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-muted/20 via-muted/30 to-muted/20" />
+        <div className="container">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-balance sm:text-4xl">Featured Prompts</h2>
+            <p className="text-lg text-muted-foreground text-balance max-w-2xl mx-auto">
+              Hand-picked prompts with exceptional performance and proven results
+            </p>
           </div>
           
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -198,28 +215,48 @@ export default function HomePage() {
               <PromptCard key={prompt.id} {...prompt} />
             ))}
           </div>
+          
+          <div className="mt-12 text-center">
+            <Button size="lg">
+              <Link href="/marketplace?sort=featured" className="flex items-center">
+                View All Featured <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16">
+      <section className="py-16 lg:py-20">
         <div className="container">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary to-secondary p-8 text-center text-white shadow-xl md:p-12">
-            {/* Noise texture overlay */}
-            <div className="absolute inset-0 opacity-[0.03]" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-            }} />
-            <h2 className="mb-4 text-3xl font-bold">Ready to Start Selling?</h2>
-            <p className="mb-8 text-lg opacity-90">
-              Join thousands of prompt engineers earning passive income
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90" asChild>
-                <Link href="/sell">Start Selling Now</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-white bg-white/10 text-white hover:bg-white/20" asChild>
-                <Link href="/docs">Learn More</Link>
-              </Button>
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary to-primary/80 p-8 text-center text-primary-foreground shadow-xl md:p-12">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `radial-gradient(circle at 25% 25%, white 1px, transparent 1px), radial-gradient(circle at 75% 75%, white 1px, transparent 1px)`,
+                backgroundSize: '40px 40px'
+              }} />
+            </div>
+            
+            <div className="relative">
+              <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
+                <Sparkles className="h-7 w-7" />
+              </div>
+              
+              <h2 className="mb-4 text-3xl font-bold text-balance sm:text-4xl">Ready to Start Selling?</h2>
+              <p className="mb-8 text-lg opacity-90 text-balance max-w-2xl mx-auto">
+                Join thousands of prompt engineers earning passive income by sharing their expertise 
+                with businesses worldwide
+              </p>
+              
+              <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+                <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
+                  <Link href="/sell">Start Selling Today</Link>
+                </Button>
+                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                  <Link href="/learn-more">Learn More</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
