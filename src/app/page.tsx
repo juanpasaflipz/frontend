@@ -136,6 +136,44 @@ export default function HomePage() {
   return (
     <LayoutWrapper>
       {/* Hero Section */}
+<<<<<<< HEAD
+      <section className="relative overflow-hidden py-32 lg:py-48">
+        {/* Background Elements */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-blue-950/20 dark:via-background dark:to-purple-950/20" />
+          <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-600/20 blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-gradient-to-tr from-purple-400/20 to-pink-600/20 blur-3xl" />
+        </div>
+        
+        <div className="container relative z-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <Badge variant="secondary" className="mb-10 px-6 py-3">
+              <Sparkles className="mr-2 h-3.5 w-3.5" />
+              Now with AI-powered deployment
+            </Badge>
+            
+            <h1 className="mb-10 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+              Build and Deploy{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Faster Than Ever
+              </span>
+            </h1>
+            
+            <p className="mb-16 text-lg text-muted-foreground sm:text-xl max-w-3xl mx-auto leading-relaxed">
+              The modern development platform that helps teams ship better software faster. 
+              Deploy instantly, scale automatically, and monitor everything.
+            </p>
+            
+            <div className="flex flex-col gap-6 sm:flex-row sm:justify-center mb-20">
+              <Button size="lg" className="group px-8 py-4 text-lg">
+                Get Started Free
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+              <Button size="lg" variant="outline" className="group px-8 py-4 text-lg">
+                <Play className="mr-2 h-4 w-4" />
+                Watch Demo
+              </Button>
+=======
       <section className="py-40 md:py-56 lg:py-72 bg-gradient-blue-indigo">
         <div className="container px-6 md:px-8 lg:px-12">
           <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-center">
@@ -179,6 +217,7 @@ export default function HomePage() {
                   <span>Instant Download</span>
                 </div>
               </div>
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
             </div>
 
             <div className="relative mt-8 lg:mt-12">
@@ -258,6 +297,13 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
+<<<<<<< HEAD
+      <section className="py-32 lg:py-48">
+        <div className="container">
+          <div className="mx-auto max-w-2xl text-center mb-24">
+            <h2 className="mb-8 text-3xl font-bold sm:text-4xl">
+              Everything you need to succeed
+=======
       <section id="features" className="py-40 md:py-56 lg:py-72">
         <div className="container px-6 md:px-8 lg:px-12">
           <div className="text-center space-y-10 mb-32">
@@ -266,13 +312,24 @@ export default function HomePage() {
             </Badge>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
               Why choose our marketplace?
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
             </h2>
+<<<<<<< HEAD
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Powerful features designed to help you build, deploy, and scale your applications with confidence.
+=======
             <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
               Everything you need to discover, purchase, and sell high-quality AI prompts in one platform.
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
             </p>
           </div>
+<<<<<<< HEAD
+          
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+=======
 
           <div className="grid gap-12 lg:gap-16 sm:grid-cols-2 lg:grid-cols-3">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
             {FEATURES.map((feature) => {
               const Icon = feature.icon
               const colorClasses = {
@@ -284,6 +341,14 @@ export default function HomePage() {
                 indigo: "bg-indigo-100 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400"
               }
               return (
+<<<<<<< HEAD
+                <Card key={feature.title} className="p-10 border-0 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                    <Icon className="h-7 w-7" />
+                  </div>
+                  <h3 className="mb-4 text-lg font-semibold">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+=======
                 <Card key={feature.title} className="border-0 shadow-soft hover:shadow-large transition-shadow">
                   <CardHeader>
                     <div className={`flex h-12 w-12 items-center justify-center rounded-lg ${colorClasses[feature.color as keyof typeof colorClasses]}`}>
@@ -294,6 +359,7 @@ export default function HomePage() {
                       {feature.description}
                     </CardDescription>
                   </CardHeader>
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
                 </Card>
               )
             })}
@@ -345,6 +411,12 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Section */}
+<<<<<<< HEAD
+      <section className="py-32 lg:py-48 bg-muted/30">
+        <div className="container">
+          <div className="mx-auto max-w-2xl text-center mb-24">
+            <h2 className="mb-8 text-3xl font-bold sm:text-4xl">
+=======
       <section id="pricing" className="py-40 md:py-56 lg:py-72">
         <div className="container px-6 md:px-8 lg:px-12">
           <div className="text-center space-y-10 mb-32">
@@ -352,18 +424,33 @@ export default function HomePage() {
               Pricing
             </Badge>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
               Simple, transparent pricing
             </h2>
+<<<<<<< HEAD
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Choose the perfect plan for your needs. Upgrade or downgrade at any time.
+=======
             <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
               Choose the perfect plan for your needs. All plans include a 14-day free trial.
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
             </p>
           </div>
+<<<<<<< HEAD
+          
+          <div className="grid gap-12 lg:grid-cols-3 max-w-5xl mx-auto">
+=======
 
           <div className="grid gap-12 lg:gap-16 lg:grid-cols-3">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
             {PRICING_PLANS.map((plan) => (
               <Card 
                 key={plan.name} 
+<<<<<<< HEAD
+                className={`relative p-10 ${plan.popular ? 'border-blue-500 shadow-lg scale-105' : ''}`}
+=======
                 className={`relative border-2 ${plan.popular ? 'border-primary shadow-large scale-105' : ''}`}
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
               >
                 {plan.popular && (
                   <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary">
@@ -371,13 +458,41 @@ export default function HomePage() {
                   </Badge>
                 )}
                 
+<<<<<<< HEAD
+                <div className="text-center mb-10">
+                  <h3 className="text-xl font-semibold mb-4">{plan.name}</h3>
+                  <div className="mb-4">
+                    <span className="text-3xl font-bold">{plan.price}</span>
+                    <span className="text-muted-foreground">/{plan.period}</span>
+=======
                 <CardHeader>
                   <CardTitle className="text-2xl">{plan.name}</CardTitle>
                   <CardDescription>{plan.description}</CardDescription>
                   <div className="text-4xl font-bold">
                     {plan.price}
                     <span className="text-lg font-normal text-muted-foreground">/{plan.period}</span>
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
                   </div>
+<<<<<<< HEAD
+                  <p className="text-sm text-muted-foreground">{plan.description}</p>
+                </div>
+                
+                <ul className="space-y-5 mb-10">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-center">
+                      <Check className="h-4 w-4 text-green-500 mr-4 flex-shrink-0" />
+                      <span className="text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  className={`w-full py-3 ${plan.popular ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700' : ''}`}
+                  variant={plan.popular ? 'default' : 'outline'}
+                >
+                  Get Started
+                </Button>
+=======
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <Button className="w-full" variant={plan.popular ? 'default' : 'outline'}>
@@ -392,23 +507,78 @@ export default function HomePage() {
                     ))}
                   </ul>
                 </CardContent>
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
               </Card>
             ))}
           </div>
         </div>
       </section>
 
+<<<<<<< HEAD
+      {/* Testimonials Section */}
+      <section className="py-32 lg:py-48">
+        <div className="container">
+          <div className="mx-auto max-w-2xl text-center mb-24">
+            <h2 className="mb-8 text-3xl font-bold sm:text-4xl">
+              Loved by developers worldwide
+=======
       {/* Final CTA Section */}
       <section className="py-40 md:py-56 lg:py-72 bg-primary text-primary-foreground">
         <div className="container px-4 md:px-6 text-center">
           <div className="space-y-12 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
               Ready to unlock the power of AI?
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
             </h2>
+<<<<<<< HEAD
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              See what our customers have to say about their experience with our platform.
+=======
             <p className="text-xl opacity-90">
               Join thousands of creators and businesses who are already using our marketplace to 
               supercharge their AI workflows. Start exploring today.
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
             </p>
+<<<<<<< HEAD
+          </div>
+          
+          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+            {TESTIMONIALS.map((testimonial) => (
+              <Card key={testimonial.name} className="p-10">
+                <div className="flex items-center mb-8">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                
+                <p className="text-muted-foreground mb-8 leading-relaxed">"{testimonial.content}"</p>
+                
+                <div className="flex items-center">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold text-sm mr-4">
+                    {testimonial.avatar}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm">{testimonial.name}</p>
+                    <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-32 lg:py-48">
+        <div className="container">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-16 text-center text-white md:p-24">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `radial-gradient(circle at 25% 25%, white 1px, transparent 1px), radial-gradient(circle at 75% 75%, white 1px, transparent 1px)`,
+                backgroundSize: '40px 40px'
+              }} />
+=======
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="text-lg px-8">
                 Browse Marketplace
@@ -421,11 +591,32 @@ export default function HomePage() {
               >
                 Become a Seller
               </Button>
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
             </div>
+<<<<<<< HEAD
+            
+            <div className="relative max-w-3xl mx-auto">
+              <h2 className="mb-8 text-3xl font-bold sm:text-4xl">
+                Ready to transform your development workflow?
+              </h2>
+              <p className="mb-12 text-lg opacity-90 leading-relaxed">
+                Join thousands of developers who have already made the switch to faster, more reliable deployments.
+              </p>
+              
+              <div className="flex flex-col gap-6 sm:flex-row sm:justify-center">
+                <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg">
+                  Start Free Trial
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg">
+                  Contact Sales
+                </Button>
+=======
             <div className="flex items-center justify-center space-x-8 text-sm opacity-75">
               <div className="flex items-center space-x-2">
                 <Check className="h-4 w-4" />
                 <span>10,000+ Prompts</span>
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
               </div>
               <div className="flex items-center space-x-2">
                 <Check className="h-4 w-4" />

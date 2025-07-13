@@ -216,36 +216,50 @@ export default function MarketplacePage() {
 
   return (
     <LayoutWrapper>
+<<<<<<< HEAD
+      <div className="container py-12 px-6 lg:px-8">
+=======
       <div className="container px-6 md:px-8 lg:px-12 py-16 lg:py-24">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
         {/* Header */}
+<<<<<<< HEAD
+        <div className="mb-12">
+          <h1 className="mb-6 text-3xl font-bold">Browse AI Prompts</h1>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+=======
         <div className="mb-16">
           <h1 className="mb-6 text-4xl lg:text-5xl font-bold">Browse AI Prompts</h1>
           <p className="text-muted-foreground">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
             Discover {filteredAndSortedPrompts.length} high-quality prompts from verified sellers
           </p>
         </div>
 
         {/* Search and Filters Bar */}
+<<<<<<< HEAD
+        <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+=======
         <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
           {/* Search */}
           <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-4 top-4 h-4 w-4 text-muted-foreground" />
             <input
               type="search"
               placeholder="Search prompts..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-10 w-full rounded-md border border-input bg-background pl-9 pr-3 text-sm outline-none focus:border-primary"
+              className="h-12 w-full rounded-md border border-input bg-background pl-11 pr-4 text-sm outline-none focus:border-primary"
             />
           </div>
 
           {/* Right side controls */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             {/* Mobile filters toggle */}
             <Button
               variant="outline"
               size="sm"
-              className="lg:hidden"
+              className="lg:hidden px-4 py-2"
               onClick={() => setShowFilters(!showFilters)}
             >
               <SlidersHorizontal className="mr-2 h-4 w-4" />
@@ -257,7 +271,7 @@ export default function MarketplacePage() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="h-9 rounded-md border border-input bg-background px-3 pr-8 text-sm outline-none focus:border-primary appearance-none cursor-pointer"
+                className="h-12 rounded-md border border-input bg-background px-4 pr-10 text-sm outline-none focus:border-primary appearance-none cursor-pointer"
               >
                 {SORT_OPTIONS.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -265,7 +279,7 @@ export default function MarketplacePage() {
                   </option>
                 ))}
               </select>
-              <ChevronDown className="absolute right-2 top-2.5 h-4 w-4 pointer-events-none" />
+              <ChevronDown className="absolute right-3 top-4 h-4 w-4 pointer-events-none" />
             </div>
 
             {/* View mode toggle */}
@@ -273,7 +287,7 @@ export default function MarketplacePage() {
               <Button
                 variant={viewMode === "grid" ? "default" : "ghost"}
                 size="sm"
-                className="rounded-none rounded-l-md"
+                className="rounded-none rounded-l-md px-4 py-2"
                 onClick={() => setViewMode("grid")}
               >
                 <Grid3X3 className="h-4 w-4" />
@@ -281,7 +295,7 @@ export default function MarketplacePage() {
               <Button
                 variant={viewMode === "list" ? "default" : "ghost"}
                 size="sm"
-                className="rounded-none rounded-r-md"
+                className="rounded-none rounded-r-md px-4 py-2"
                 onClick={() => setViewMode("list")}
               >
                 <List className="h-4 w-4" />
@@ -290,19 +304,33 @@ export default function MarketplacePage() {
           </div>
         </div>
 
+<<<<<<< HEAD
+        <div className="flex gap-12">
+=======
         <div className="flex gap-16 lg:gap-20">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
           {/* Sidebar Filters - Desktop */}
+<<<<<<< HEAD
+          <aside className="hidden lg:block w-72 shrink-0">
+            <div className="sticky top-24 space-y-8">
+=======
           <aside className="hidden lg:block w-72 xl:w-80 shrink-0">
             <div className="sticky top-24 space-y-10">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
               {/* Categories */}
               <div>
+<<<<<<< HEAD
+                <h3 className="mb-4 text-sm font-semibold">Categories</h3>
+                <div className="space-y-2">
+=======
                 <h3 className="mb-4 text-sm font-semibold">Categories</h3>
                 <div className="space-y-1">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
                   {CATEGORIES.map((category) => (
                     <button
                       key={category}
                       onClick={() => setSelectedCategory(category)}
-                      className={`w-full rounded-md px-3 py-2 text-left text-sm transition-colors ${
+                      className={`w-full rounded-md px-4 py-3 text-left text-sm transition-colors ${
                         selectedCategory === category
                           ? "bg-primary text-primary-foreground"
                           : "hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -316,13 +344,18 @@ export default function MarketplacePage() {
 
               {/* Price Range */}
               <div>
+<<<<<<< HEAD
+                <h3 className="mb-4 text-sm font-semibold">Price Range</h3>
+                <div className="space-y-2">
+=======
                 <h3 className="mb-4 text-sm font-semibold">Price Range</h3>
                 <div className="space-y-1">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
                   {PRICE_RANGES.map((range) => (
                     <button
                       key={range.value}
                       onClick={() => setPriceRange(range.value)}
-                      className={`w-full rounded-md px-3 py-2 text-left text-sm transition-colors ${
+                      className={`w-full rounded-md px-4 py-3 text-left text-sm transition-colors ${
                         priceRange === range.value
                           ? "bg-primary text-primary-foreground"
                           : "hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -337,25 +370,30 @@ export default function MarketplacePage() {
               {/* Active Filters */}
               {(selectedCategory !== "All" || priceRange !== "all") && (
                 <div>
+<<<<<<< HEAD
+                  <h3 className="mb-4 text-sm font-semibold">Active Filters</h3>
+                  <div className="flex flex-wrap gap-3">
+=======
                   <h3 className="mb-4 text-sm font-semibold">Active Filters</h3>
                   <div className="flex flex-wrap gap-2">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
                     {selectedCategory !== "All" && (
-                      <Badge variant="secondary" className="pr-1">
+                      <Badge variant="secondary" className="pr-2 py-1">
                         {selectedCategory}
                         <button
                           onClick={() => setSelectedCategory("All")}
-                          className="ml-1 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-700"
+                          className="ml-2 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-700 p-1"
                         >
                           <X className="h-3 w-3" />
                         </button>
                       </Badge>
                     )}
                     {priceRange !== "all" && (
-                      <Badge variant="secondary" className="pr-1">
+                      <Badge variant="secondary" className="pr-2 py-1">
                         {PRICE_RANGES.find((r) => r.value === priceRange)?.label}
                         <button
                           onClick={() => setPriceRange("all")}
-                          className="ml-1 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-700"
+                          className="ml-2 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-700 p-1"
                         >
                           <X className="h-3 w-3" />
                         </button>
@@ -371,7 +409,7 @@ export default function MarketplacePage() {
           {showFilters && (
             <div className="fixed inset-0 z-50 bg-background lg:hidden">
               <div className="flex h-full flex-col">
-                <div className="flex items-center justify-between border-b p-4">
+                <div className="flex items-center justify-between border-b p-6">
                   <h2 className="text-lg font-semibold">Filters</h2>
                   <Button
                     variant="ghost"
@@ -384,13 +422,18 @@ export default function MarketplacePage() {
                 <div className="flex-1 overflow-y-auto p-6 space-y-8">
                   {/* Categories */}
                   <div>
+<<<<<<< HEAD
+                    <h3 className="mb-4 text-sm font-semibold">Categories</h3>
+                    <div className="space-y-2">
+=======
                     <h3 className="mb-4 text-sm font-semibold">Categories</h3>
                     <div className="space-y-1">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
                       {CATEGORIES.map((category) => (
                         <button
                           key={category}
                           onClick={() => setSelectedCategory(category)}
-                          className={`w-full rounded-md px-3 py-2 text-left text-sm transition-colors ${
+                          className={`w-full rounded-md px-4 py-3 text-left text-sm transition-colors ${
                             selectedCategory === category
                               ? "bg-primary text-primary-foreground"
                               : "hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -404,13 +447,18 @@ export default function MarketplacePage() {
 
                   {/* Price Range */}
                   <div>
+<<<<<<< HEAD
+                    <h3 className="mb-4 text-sm font-semibold">Price Range</h3>
+                    <div className="space-y-2">
+=======
                     <h3 className="mb-4 text-sm font-semibold">Price Range</h3>
                     <div className="space-y-1">
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
                       {PRICE_RANGES.map((range) => (
                         <button
                           key={range.value}
                           onClick={() => setPriceRange(range.value)}
-                          className={`w-full rounded-md px-3 py-2 text-left text-sm transition-colors ${
+                          className={`w-full rounded-md px-4 py-3 text-left text-sm transition-colors ${
                             priceRange === range.value
                               ? "bg-primary text-primary-foreground"
                               : "hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -422,9 +470,9 @@ export default function MarketplacePage() {
                     </div>
                   </div>
                 </div>
-                <div className="border-t p-4">
+                <div className="border-t p-6">
                   <Button
-                    className="w-full"
+                    className="w-full py-3"
                     onClick={() => setShowFilters(false)}
                   >
                     Apply Filters
@@ -447,8 +495,13 @@ export default function MarketplacePage() {
               <div
                 className={
                   viewMode === "grid"
+<<<<<<< HEAD
+                    ? "grid gap-8 sm:grid-cols-2 xl:grid-cols-3"
+                    : "space-y-4"
+=======
                     ? "grid gap-10 lg:gap-12 sm:grid-cols-2 xl:grid-cols-3"
                     : "space-y-8"
+>>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
                 }
               >
                 {filteredAndSortedPrompts.map((prompt) => (
