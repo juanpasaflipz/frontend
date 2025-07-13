@@ -127,7 +127,7 @@ export default function HomePage() {
   return (
     <LayoutWrapper>
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 lg:py-32">
+      <section className="relative overflow-hidden py-24 lg:py-40">
         {/* Background Elements */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-blue-950/20 dark:via-background dark:to-purple-950/20" />
@@ -137,24 +137,24 @@ export default function HomePage() {
         
         <div className="container relative z-10">
           <div className="mx-auto max-w-4xl text-center">
-            <Badge variant="secondary" className="mb-6 px-4 py-2">
+            <Badge variant="secondary" className="mb-8 px-4 py-2">
               <Sparkles className="mr-2 h-3.5 w-3.5" />
               Now with AI-powered deployment
             </Badge>
             
-            <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="mb-8 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               Build and Deploy{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Faster Than Ever
               </span>
             </h1>
             
-            <p className="mb-8 text-lg text-muted-foreground sm:text-xl max-w-3xl mx-auto">
+            <p className="mb-12 text-lg text-muted-foreground sm:text-xl max-w-3xl mx-auto">
               The modern development platform that helps teams ship better software faster. 
               Deploy instantly, scale automatically, and monitor everything.
             </p>
             
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center mb-12">
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center mb-16">
               <Button size="lg" className="group">
                 Get Started Free
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -173,10 +173,10 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 lg:py-32">
+      <section className="py-24 lg:py-40">
         <div className="container">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="mb-4 text-3xl font-bold sm:text-4xl">
+          <div className="mx-auto max-w-2xl text-center mb-20">
+            <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
               Everything you need to succeed
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -188,11 +188,11 @@ export default function HomePage() {
             {FEATURES.map((feature) => {
               const Icon = feature.icon
               return (
-                <Card key={feature.title} className="p-6 border-0 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                <Card key={feature.title} className="p-8 border-0 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mb-2 text-lg font-semibold">{feature.title}</h3>
+                  <h3 className="mb-3 text-lg font-semibold">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
                 </Card>
               )
@@ -202,10 +202,10 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 lg:py-32 bg-muted/30">
+      <section className="py-24 lg:py-40 bg-muted/30">
         <div className="container">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="mb-4 text-3xl font-bold sm:text-4xl">
+          <div className="mx-auto max-w-2xl text-center mb-20">
+            <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
               Simple, transparent pricing
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -225,16 +225,16 @@ export default function HomePage() {
                   </Badge>
                 )}
                 
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
-                  <div className="mb-2">
+                <div className="text-center mb-8">
+                  <h3 className="text-xl font-semibold mb-3">{plan.name}</h3>
+                  <div className="mb-3">
                     <span className="text-3xl font-bold">{plan.price}</span>
                     <span className="text-muted-foreground">/{plan.period}</span>
                   </div>
                   <p className="text-sm text-muted-foreground">{plan.description}</p>
                 </div>
                 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-4 mb-8">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-center">
                       <Check className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
@@ -256,10 +256,10 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 lg:py-32">
+      <section className="py-24 lg:py-40">
         <div className="container">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="mb-4 text-3xl font-bold sm:text-4xl">
+          <div className="mx-auto max-w-2xl text-center mb-20">
+            <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
               Loved by developers worldwide
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -269,14 +269,14 @@ export default function HomePage() {
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {TESTIMONIALS.map((testimonial) => (
-              <Card key={testimonial.name} className="p-6">
-                <div className="flex items-center mb-4">
+              <Card key={testimonial.name} className="p-8">
+                <div className="flex items-center mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
                 
-                <p className="text-muted-foreground mb-4">"{testimonial.content}"</p>
+                <p className="text-muted-foreground mb-6">"{testimonial.content}"</p>
                 
                 <div className="flex items-center">
                   <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold text-sm mr-3">
@@ -294,9 +294,9 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-32">
+      <section className="py-24 lg:py-40">
         <div className="container">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-center text-white md:p-16">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-12 text-center text-white md:p-20">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute inset-0" style={{
@@ -306,10 +306,10 @@ export default function HomePage() {
             </div>
             
             <div className="relative max-w-3xl mx-auto">
-              <h2 className="mb-4 text-3xl font-bold sm:text-4xl">
+              <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
                 Ready to transform your development workflow?
               </h2>
-              <p className="mb-8 text-lg opacity-90">
+              <p className="mb-10 text-lg opacity-90">
                 Join thousands of developers who have already made the switch to faster, more reliable deployments.
               </p>
               
