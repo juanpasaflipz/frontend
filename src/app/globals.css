@@ -2,24 +2,24 @@
 
 :root {
   --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
+  --foreground: 222.2 84% 4.9%;
   --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
+  --card-foreground: 222.2 84% 4.9%;
   --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 240 5.9% 10%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
   --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 240 5.9% 10%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
   --radius: 0.5rem;
   --chart-1: 12 76% 61%;
   --chart-2: 173 58% 39%;
@@ -51,25 +51,25 @@
 }
 
 .dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 240 5.9% 10%;
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 240 4.9% 83.9%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
   --chart-1: 220 70% 50%;
   --chart-2: 160 60% 45%;
   --chart-3: 30 80% 55%;
@@ -99,8 +99,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
   position: relative;
-  line-height: 1.6;
+  line-height: 1.8;
   font-weight: 400;
+  font-size: 18px;
 }
 
 /* v0.dev-style subtle background pattern */
@@ -195,41 +196,44 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.25rem;
+  font-size: 2.75rem;
   font-weight: 700;
   letter-spacing: -0.05em;
-  line-height: 1.1;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 640px) {
   h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 }
 
 @media (min-width: 768px) {
   h1 {
-    font-size: 3.75rem;
+    font-size: 4.5rem;
   }
 }
 
 h2 {
-  font-size: 1.875rem;
+  font-size: 2.25rem;
   font-weight: 600;
   letter-spacing: -0.025em;
-  line-height: 1.2;
+  line-height: 1.3;
+  margin-bottom: 1.25rem;
 }
 
 @media (min-width: 640px) {
   h2 {
-    font-size: 2.25rem;
+    font-size: 2.75rem;
   }
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.4;
+  margin-bottom: 1rem;
 }
 
 h4 {
@@ -239,8 +243,9 @@ h4 {
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.8;
   color: hsl(var(--muted-foreground));
+  margin-bottom: 1.25rem;
 }
 
 /* v0.dev-style animations */
@@ -379,4 +384,22 @@ img {
 /* Smooth transitions for theme switching */
 * {
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* StreamLine specific utilities */
+.shadow-soft {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.shadow-large {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Gradient backgrounds */
+.bg-gradient-blue-indigo {
+  background: linear-gradient(to bottom right, hsl(217 91% 96%), hsl(226 91% 93%));
+}
+
+.dark .bg-gradient-blue-indigo {
+  background: linear-gradient(to bottom right, hsl(217 91% 10% / 0.2), hsl(226 91% 10% / 0.2));
 }

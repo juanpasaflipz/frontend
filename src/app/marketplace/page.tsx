@@ -216,17 +216,17 @@ export default function MarketplacePage() {
 
   return (
     <LayoutWrapper>
-      <div className="container py-8">
+      <div className="container px-6 md:px-8 lg:px-12 py-16 lg:py-24">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="mb-4 text-3xl font-bold">Browse AI Prompts</h1>
+        <div className="mb-16">
+          <h1 className="mb-6 text-4xl lg:text-5xl font-bold">Browse AI Prompts</h1>
           <p className="text-muted-foreground">
             Discover {filteredAndSortedPrompts.length} high-quality prompts from verified sellers
           </p>
         </div>
 
         {/* Search and Filters Bar */}
-        <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           {/* Search */}
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
@@ -290,13 +290,13 @@ export default function MarketplacePage() {
           </div>
         </div>
 
-        <div className="flex gap-8">
+        <div className="flex gap-16 lg:gap-20">
           {/* Sidebar Filters - Desktop */}
-          <aside className="hidden lg:block w-64 shrink-0">
-            <div className="sticky top-20 space-y-6">
+          <aside className="hidden lg:block w-72 xl:w-80 shrink-0">
+            <div className="sticky top-24 space-y-10">
               {/* Categories */}
               <div>
-                <h3 className="mb-3 text-sm font-semibold">Categories</h3>
+                <h3 className="mb-4 text-sm font-semibold">Categories</h3>
                 <div className="space-y-1">
                   {CATEGORIES.map((category) => (
                     <button
@@ -316,7 +316,7 @@ export default function MarketplacePage() {
 
               {/* Price Range */}
               <div>
-                <h3 className="mb-3 text-sm font-semibold">Price Range</h3>
+                <h3 className="mb-4 text-sm font-semibold">Price Range</h3>
                 <div className="space-y-1">
                   {PRICE_RANGES.map((range) => (
                     <button
@@ -337,7 +337,7 @@ export default function MarketplacePage() {
               {/* Active Filters */}
               {(selectedCategory !== "All" || priceRange !== "all") && (
                 <div>
-                  <h3 className="mb-3 text-sm font-semibold">Active Filters</h3>
+                  <h3 className="mb-4 text-sm font-semibold">Active Filters</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedCategory !== "All" && (
                       <Badge variant="secondary" className="pr-1">
@@ -381,10 +381,10 @@ export default function MarketplacePage() {
                     <X className="h-5 w-5" />
                   </Button>
                 </div>
-                <div className="flex-1 overflow-y-auto p-4 space-y-6">
+                <div className="flex-1 overflow-y-auto p-6 space-y-8">
                   {/* Categories */}
                   <div>
-                    <h3 className="mb-3 text-sm font-semibold">Categories</h3>
+                    <h3 className="mb-4 text-sm font-semibold">Categories</h3>
                     <div className="space-y-1">
                       {CATEGORIES.map((category) => (
                         <button
@@ -404,7 +404,7 @@ export default function MarketplacePage() {
 
                   {/* Price Range */}
                   <div>
-                    <h3 className="mb-3 text-sm font-semibold">Price Range</h3>
+                    <h3 className="mb-4 text-sm font-semibold">Price Range</h3>
                     <div className="space-y-1">
                       {PRICE_RANGES.map((range) => (
                         <button
@@ -437,7 +437,7 @@ export default function MarketplacePage() {
           {/* Main Content */}
           <main className="flex-1">
             {/* Results count */}
-            <p className="mb-4 text-sm text-muted-foreground">
+            <p className="mb-6 text-sm text-muted-foreground">
               {filteredAndSortedPrompts.length} results
               {searchQuery && ` for "${searchQuery}"`}
             </p>
@@ -447,8 +447,8 @@ export default function MarketplacePage() {
               <div
                 className={
                   viewMode === "grid"
-                    ? "grid gap-6 sm:grid-cols-2 xl:grid-cols-3"
-                    : "space-y-4"
+                    ? "grid gap-10 lg:gap-12 sm:grid-cols-2 xl:grid-cols-3"
+                    : "space-y-8"
                 }
               >
                 {filteredAndSortedPrompts.map((prompt) => (
@@ -476,7 +476,7 @@ export default function MarketplacePage() {
 
             {/* Load More / Pagination would go here */}
             {filteredAndSortedPrompts.length > 0 && (
-              <div className="mt-8 flex justify-center">
+              <div className="mt-12 flex justify-center">
                 <Button variant="outline">Load More</Button>
               </div>
             )}
