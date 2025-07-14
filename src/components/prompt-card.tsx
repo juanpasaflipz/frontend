@@ -5,66 +5,145 @@ import { Star, ShoppingCart, Eye, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 interface PromptCardProps {
-  id: string
-  title: string
-  description: string
-  price: number
-  category: string
-  rating: number
-  salesCount: number
-  sellerName: string
-  tags?: string[]
+  prompt: {
+    id: string
+    title: string
+    description: string
+    price: number
+    category: string
+    rating: number
+    salesCount: number
+    sellerName: string
+    tags?: string[]
+  }
+  viewMode?: "grid" | "list"
 }
 
-export function PromptCard({
-  id,
-  title,
-  description,
-  price,
-  category,
-  rating,
-  salesCount,
-  sellerName,
-  tags = [],
-}: PromptCardProps) {
-  return (
-    <Card className="group relative flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-large hover:-translate-y-1 hover:border-primary/20">
-      <Link href={`/prompts/${id}`} className="absolute inset-0 z-10">
-        <span className="sr-only">View prompt</span>
-      </Link>
-      
-      {/* Gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/3 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      
-      <CardHeader className="relative pb-4 p-6">
-        <div className="flex items-start justify-between mb-3">
-          <Badge variant="secondary" className="text-xs font-medium px-3 py-1.5">
-            {category}
-          </Badge>
-          <div className="flex items-center gap-1.5 text-sm">
-            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-            <span className="font-medium">{rating.toFixed(1)}</span>
+export function PromptCard({ prompt, viewMode = "grid" }: PromptCardProps) {
+  const {
+    id,
+    title,
+    description,
+    price,
+    category,
+    rating,
+    salesCount,
+    sellerName,
+    tags = [],
+  } = prompt
+
+  if (viewMode === "list") {
+    return (
+      <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+        <div className="p-6">
+          <div className="flex items-start justify-between">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-3">
+                <Badge variant="secondary" className="text-xs font-medium">
+                  {category}
+                </Badge>
+                <div className="flex items-center gap-1">
+                  <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                  <span className="text-sm font-medium">{rating.toFixed(1)}</span>
+                  <span className="text-sm text-gray-500">({salesCount})</span>
+                </div>
+              </div>
+              
+              <Link href={`/prompts/${id}`} className="group">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">
+                  {title}
+                </h3>
+              </Link>
+              
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                by {sellerName}
+              </p>
+              
+              <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2 mb-4">
+                {description}
+              </p>
+              
+              {tags.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {tags.slice(0, 4).map((tag) => (
+                    <Badge key={tag} variant="outline" className="text-xs">
+                      {tag}
+                    </Badge>
+                  ))}
+                  {tags.length > 4 && (
+                    <Badge variant="outline" className="text-xs">
+                      +{tags.length - 4}
+                    </Badge>
+                  )}
+                </div>
+              )}
+            </div>
+            
+            <div className="flex items-center gap-4 ml-6">
+              <div className="text-right">
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                  ${price}
+                </p>
+                <p className="text-sm text-gray-500">
+                  {salesCount} sales
+                </p>
+              </div>
+              
+              <div className="flex gap-2">
+                <Button variant="outline" size="sm">
+                  <Eye className="h-4 w-4 mr-2" />
+                  Preview
+                </Button>
+                <Button size="sm" className="bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-100">
+                  <ShoppingCart className="h-4 w-4 mr-2" />
+                  Buy
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
-        <h3 className="line-clamp-2 text-lg font-semibold tracking-tight group-hover:text-primary transition-colors mb-2">
-          {title}
-        </h3>
-        <p className="text-sm text-muted-foreground">by {sellerName}</p>
+      </Card>
+    )
+  }
+
+  return (
+    <Card className="group h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-gray-200 dark:border-gray-800">
+      <CardHeader className="p-6 pb-4">
+        <div className="flex items-start justify-between mb-3">
+          <Badge variant="secondary" className="text-xs font-medium">
+            {category}
+          </Badge>
+          <div className="flex items-center gap-1">
+            <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+            <span className="text-sm font-medium">{rating.toFixed(1)}</span>
+          </div>
+        </div>
+        
+        <Link href={`/prompts/${id}`} className="group">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 mb-2">
+            {title}
+          </h3>
+        </Link>
+        
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          by {sellerName}
+        </p>
       </CardHeader>
       
-      <CardContent className="relative flex-1 pb-4 px-6">
-        <p className="line-clamp-3 text-sm text-muted-foreground leading-relaxed mb-4">
+      <CardContent className="p-6 pt-0 flex-1">
+        <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3 mb-4">
           {description}
         </p>
+        
         {tags.length > 0 && (
           <div className="flex flex-wrap gap-2">
             {tags.slice(0, 3).map((tag) => (
-              <Badge key={tag} variant="outline" className="text-xs px-3 py-1 rounded-md">
+              <Badge key={tag} variant="outline" className="text-xs">
                 {tag}
               </Badge>
             ))}
             {tags.length > 3 && (
-              <Badge variant="outline" className="text-xs px-3 py-1 rounded-md">
+              <Badge variant="outline" className="text-xs">
                 +{tags.length - 3}
               </Badge>
             )}
@@ -72,23 +151,24 @@ export function PromptCard({
         )}
       </CardContent>
       
-      <CardFooter className="relative pt-4 border-t bg-muted/20 p-6">
+      <CardFooter className="p-6 pt-4 border-t border-gray-100 dark:border-gray-800">
         <div className="flex w-full items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div>
-              <p className="text-xl font-bold mb-1">${price}</p>
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                <TrendingUp className="h-3 w-3" />
-                <span>{salesCount} sales</span>
-              </div>
-            </div>
+          <div>
+            <p className="text-xl font-bold text-gray-900 dark:text-white">
+              ${price}
+            </p>
+            <p className="text-sm text-gray-500 flex items-center gap-1">
+              <TrendingUp className="h-3 w-3" />
+              {salesCount} sales
+            </p>
           </div>
-          <div className="relative z-20 flex gap-3">
-            <Button size="sm" variant="outline" className="h-9 w-9 p-0 hover:bg-primary hover:text-primary-foreground transition-colors">
+          
+          <div className="flex gap-2">
+            <Button variant="outline" size="sm">
               <Eye className="h-4 w-4" />
             </Button>
-            <Button size="sm" className="h-9 px-4 text-xs font-medium">
-              <ShoppingCart className="h-3 w-3 mr-2" />
+            <Button size="sm" className="bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-100">
+              <ShoppingCart className="h-4 w-4 mr-2" />
               Buy
             </Button>
           </div>

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, Sparkles, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import { useState } from "react"
 import { ThemeToggle } from "./theme-toggle"
 
@@ -10,42 +10,48 @@ export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md">
+      <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-            <Sparkles className="h-5 w-5 text-primary-foreground" />
+        <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+          <div className="text-2xl font-bold">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              PromptMarket
+            </span>
           </div>
-          <span className="text-xl font-bold">PromptMarket</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link href="/marketplace" className="text-sm font-medium hover:text-primary transition-colors">
-            Browse
+          <div className="relative group">
+            <button className="flex items-center space-x-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
+              <span>Products</span>
+              <ChevronDown className="h-3 w-3" />
+            </button>
+          </div>
+          <Link href="/marketplace" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
+            Marketplace
           </Link>
-          <Link href="#features" className="text-sm font-medium hover:text-primary transition-colors">
-            Features
-          </Link>
-          <Link href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">
-            Testimonials
-          </Link>
-          <Link href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
+          <Link href="#pricing" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
             Pricing
           </Link>
-          <Link href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
-            Contact
+          <Link href="#docs" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
+            Docs
+          </Link>
+          <Link href="#enterprise" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
+            Enterprise
           </Link>
         </nav>
 
         {/* Right Side Actions */}
         <div className="flex items-center space-x-4">
           <ThemeToggle />
-          <Button variant="ghost" className="hidden md:inline-flex">
-            Sign In
+          <Button variant="ghost" className="hidden md:inline-flex text-sm font-medium">
+            Log in
           </Button>
-          <Button>Start Free Trial</Button>
+          <Button className="bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-100 text-sm font-medium">
+            Sign up
+          </Button>
           <Button 
             variant="ghost" 
             size="icon" 
@@ -63,46 +69,49 @@ export function Navigation() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="border-t bg-background md:hidden">
-          <nav className="container px-4 py-4 space-y-2">
-            <Link 
-              href="/marketplace" 
-              className="block px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Browse
-            </Link>
-            <Link 
-              href="#features" 
-              className="block px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Features
-            </Link>
-            <Link 
-              href="#testimonials" 
-              className="block px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Testimonials
-            </Link>
+        <div className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 md:hidden">
+          <nav className="container px-4 py-6 space-y-4">
+            <div className="space-y-2">
+              <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                Products
+              </div>
+              <Link 
+                href="/marketplace" 
+                className="block px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Marketplace
+              </Link>
+            </div>
+            
             <Link 
               href="#pricing" 
-              className="block px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
+              className="block px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Pricing
             </Link>
             <Link 
-              href="#contact" 
-              className="block px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
+              href="#docs" 
+              className="block px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contact
+              Docs
             </Link>
-            <div className="pt-4 space-y-2">
-              <Button variant="ghost" className="w-full justify-start">
-                Sign In
+            <Link 
+              href="#enterprise" 
+              className="block px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Enterprise
+            </Link>
+            
+            <div className="pt-4 border-t border-gray-200 dark:border-gray-800 space-y-2">
+              <Button variant="ghost" className="w-full justify-start text-sm font-medium">
+                Log in
+              </Button>
+              <Button className="w-full bg-black hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-100 text-sm font-medium">
+                Sign up
               </Button>
             </div>
           </nav>

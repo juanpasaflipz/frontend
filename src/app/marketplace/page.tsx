@@ -11,7 +11,8 @@ import {
   ChevronDown,
   Grid3X3,
   List,
-  X
+  X,
+  Filter
 } from "lucide-react"
 
 // Mock data - in production this would come from API
@@ -216,48 +217,57 @@ export default function MarketplacePage() {
 
   return (
     <LayoutWrapper>
-      <div className="container px-6 md:px-8 lg:px-12 py-16 lg:py-24">
+      <div className="container py-12">
         {/* Header */}
-        <div className="mb-16">
-          <h1 className="mb-6 text-4xl lg:text-5xl font-bold">Browse AI Prompts</h1>
-          <p className="text-muted-foreground">
-            Discover {filteredAndSortedPrompts.length} high-quality prompts from verified sellers
+        <div className="mb-12">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            AI Prompt Marketplace
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300">
+            Discover {filteredAndSortedPrompts.length} high-quality prompts from verified creators
           </p>
         </div>
 
-        {/* Search and Filters Bar */}
-        <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-          {/* Search */}
-          <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+        {/* Search and Filters */}
+        <div className="mb-8">
+          {/* Search Bar */}
+          <div className="relative mb-6">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
             <input
               type="search"
               placeholder="Search prompts..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-10 w-full rounded-md border border-input bg-background pl-9 pr-3 text-sm outline-none focus:border-primary"
+              className="w-full h-12 pl-10 pr-4 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
 
-          {/* Right side controls */}
-          <div className="flex items-center gap-2">
-            {/* Mobile filters toggle */}
-            <Button
-              variant="outline"
-              size="sm"
-              className="lg:hidden"
-              onClick={() => setShowFilters(!showFilters)}
-            >
-              <SlidersHorizontal className="mr-2 h-4 w-4" />
-              Filters
-            </Button>
+          {/* Filter Controls */}
+          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+            {/* Categories */}
+            <div className="flex flex-wrap gap-2">
+              {CATEGORIES.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-3 py-1.5 text-sm font-medium rounded-full transition-colors ${
+                    selectedCategory === category
+                      ? "bg-black text-white dark:bg-white dark:text-black"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
 
-            {/* Sort dropdown */}
-            <div className="relative">
+            {/* Sort and View Controls */}
+            <div className="flex items-center gap-3">
+              {/* Sort Dropdown */}
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="h-9 rounded-md border border-input bg-background px-3 pr-8 text-sm outline-none focus:border-primary appearance-none cursor-pointer"
+                className="px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 {SORT_OPTIONS.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -265,224 +275,90 @@ export default function MarketplacePage() {
                   </option>
                 ))}
               </select>
-              <ChevronDown className="absolute right-2 top-2.5 h-4 w-4 pointer-events-none" />
-            </div>
 
-            {/* View mode toggle */}
-            <div className="hidden lg:flex items-center rounded-md border">
-              <Button
-                variant={viewMode === "grid" ? "default" : "ghost"}
-                size="sm"
-                className="rounded-none rounded-l-md"
-                onClick={() => setViewMode("grid")}
+              {/* Price Filter */}
+              <select
+                value={priceRange}
+                onChange={(e) => setPriceRange(e.target.value)}
+                className="px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <Grid3X3 className="h-4 w-4" />
-              </Button>
-              <Button
-                variant={viewMode === "list" ? "default" : "ghost"}
-                size="sm"
-                className="rounded-none rounded-r-md"
-                onClick={() => setViewMode("list")}
-              >
-                <List className="h-4 w-4" />
-              </Button>
+                {PRICE_RANGES.map((range) => (
+                  <option key={range.value} value={range.value}>
+                    {range.label}
+                  </option>
+                ))}
+              </select>
+
+              {/* View Mode Toggle */}
+              <div className="flex border border-gray-200 dark:border-gray-700 rounded-lg">
+                <button
+                  onClick={() => setViewMode("grid")}
+                  className={`p-2 ${
+                    viewMode === "grid"
+                      ? "bg-gray-100 dark:bg-gray-800"
+                      : "hover:bg-gray-50 dark:hover:bg-gray-800"
+                  }`}
+                >
+                  <Grid3X3 className="h-4 w-4" />
+                </button>
+                <button
+                  onClick={() => setViewMode("list")}
+                  className={`p-2 ${
+                    viewMode === "list"
+                      ? "bg-gray-100 dark:bg-gray-800"
+                      : "hover:bg-gray-50 dark:hover:bg-gray-800"
+                  }`}
+                >
+                  <List className="h-4 w-4" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="flex gap-16 lg:gap-20">
-          {/* Sidebar Filters - Desktop */}
-          <aside className="hidden lg:block w-72 xl:w-80 shrink-0">
-            <div className="sticky top-24 space-y-10">
-              {/* Categories */}
-              <div>
-                <h3 className="mb-4 text-sm font-semibold">Categories</h3>
-                <div className="space-y-1">
-                  {CATEGORIES.map((category) => (
-                    <button
-                      key={category}
-                      onClick={() => setSelectedCategory(category)}
-                      className={`w-full rounded-md px-3 py-2 text-left text-sm transition-colors ${
-                        selectedCategory === category
-                          ? "bg-primary text-primary-foreground"
-                          : "hover:bg-gray-100 dark:hover:bg-gray-800"
-                      }`}
-                    >
-                      {category}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Price Range */}
-              <div>
-                <h3 className="mb-4 text-sm font-semibold">Price Range</h3>
-                <div className="space-y-1">
-                  {PRICE_RANGES.map((range) => (
-                    <button
-                      key={range.value}
-                      onClick={() => setPriceRange(range.value)}
-                      className={`w-full rounded-md px-3 py-2 text-left text-sm transition-colors ${
-                        priceRange === range.value
-                          ? "bg-primary text-primary-foreground"
-                          : "hover:bg-gray-100 dark:hover:bg-gray-800"
-                      }`}
-                    >
-                      {range.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Active Filters */}
-              {(selectedCategory !== "All" || priceRange !== "all") && (
-                <div>
-                  <h3 className="mb-4 text-sm font-semibold">Active Filters</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedCategory !== "All" && (
-                      <Badge variant="secondary" className="pr-1">
-                        {selectedCategory}
-                        <button
-                          onClick={() => setSelectedCategory("All")}
-                          className="ml-1 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-700"
-                        >
-                          <X className="h-3 w-3" />
-                        </button>
-                      </Badge>
-                    )}
-                    {priceRange !== "all" && (
-                      <Badge variant="secondary" className="pr-1">
-                        {PRICE_RANGES.find((r) => r.value === priceRange)?.label}
-                        <button
-                          onClick={() => setPriceRange("all")}
-                          className="ml-1 rounded-sm hover:bg-gray-200 dark:hover:bg-gray-700"
-                        >
-                          <X className="h-3 w-3" />
-                        </button>
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-              )}
+        {/* Results */}
+        {filteredAndSortedPrompts.length === 0 ? (
+          <div className="text-center py-16">
+            <div className="text-gray-400 mb-4">
+              <Search className="h-12 w-12 mx-auto" />
             </div>
-          </aside>
-
-          {/* Mobile Filters - Overlay */}
-          {showFilters && (
-            <div className="fixed inset-0 z-50 bg-background lg:hidden">
-              <div className="flex h-full flex-col">
-                <div className="flex items-center justify-between border-b p-4">
-                  <h2 className="text-lg font-semibold">Filters</h2>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setShowFilters(false)}
-                  >
-                    <X className="h-5 w-5" />
-                  </Button>
-                </div>
-                <div className="flex-1 overflow-y-auto p-6 space-y-8">
-                  {/* Categories */}
-                  <div>
-                    <h3 className="mb-4 text-sm font-semibold">Categories</h3>
-                    <div className="space-y-1">
-                      {CATEGORIES.map((category) => (
-                        <button
-                          key={category}
-                          onClick={() => setSelectedCategory(category)}
-                          className={`w-full rounded-md px-3 py-2 text-left text-sm transition-colors ${
-                            selectedCategory === category
-                              ? "bg-primary text-primary-foreground"
-                              : "hover:bg-gray-100 dark:hover:bg-gray-800"
-                          }`}
-                        >
-                          {category}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Price Range */}
-                  <div>
-                    <h3 className="mb-4 text-sm font-semibold">Price Range</h3>
-                    <div className="space-y-1">
-                      {PRICE_RANGES.map((range) => (
-                        <button
-                          key={range.value}
-                          onClick={() => setPriceRange(range.value)}
-                          className={`w-full rounded-md px-3 py-2 text-left text-sm transition-colors ${
-                            priceRange === range.value
-                              ? "bg-primary text-primary-foreground"
-                              : "hover:bg-gray-100 dark:hover:bg-gray-800"
-                          }`}
-                        >
-                          {range.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className="border-t p-4">
-                  <Button
-                    className="w-full"
-                    onClick={() => setShowFilters(false)}
-                  >
-                    Apply Filters
-                  </Button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Main Content */}
-          <main className="flex-1">
-            {/* Results count */}
-            <p className="mb-6 text-sm text-muted-foreground">
-              {filteredAndSortedPrompts.length} results
-              {searchQuery && ` for "${searchQuery}"`}
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
+              No prompts found
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              Try adjusting your search or filters to find what you're looking for.
             </p>
+          </div>
+        ) : (
+          <div
+            className={
+              viewMode === "grid"
+                ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                : "space-y-4"
+            }
+          >
+            {filteredAndSortedPrompts.map((prompt) => (
+              <PromptCard
+                key={prompt.id}
+                prompt={prompt}
+                viewMode={viewMode}
+              />
+            ))}
+          </div>
+        )}
 
-            {/* Prompts Grid/List */}
-            {filteredAndSortedPrompts.length > 0 ? (
-              <div
-                className={
-                  viewMode === "grid"
-                    ? "grid gap-10 lg:gap-12 sm:grid-cols-2 xl:grid-cols-3"
-                    : "space-y-8"
-                }
-              >
-                {filteredAndSortedPrompts.map((prompt) => (
-                  <PromptCard key={prompt.id} {...prompt} />
-                ))}
-              </div>
-            ) : (
-              <div className="rounded-lg border border-dashed p-12 text-center">
-                <p className="text-muted-foreground">
-                  No prompts found matching your criteria.
-                </p>
-                <Button
-                  variant="outline"
-                  className="mt-4"
-                  onClick={() => {
-                    setSearchQuery("");
-                    setSelectedCategory("All");
-                    setPriceRange("all");
-                  }}
-                >
-                  Clear Filters
-                </Button>
-              </div>
-            )}
-
-            {/* Load More / Pagination would go here */}
-            {filteredAndSortedPrompts.length > 0 && (
-              <div className="mt-12 flex justify-center">
-                <Button variant="outline">Load More</Button>
-              </div>
-            )}
-          </main>
-        </div>
+        {/* Load More */}
+        {filteredAndSortedPrompts.length > 0 && (
+          <div className="text-center mt-12">
+            <Button
+              variant="outline"
+              className="px-8 py-3 text-sm font-medium"
+            >
+              Load more prompts
+            </Button>
+          </div>
+        )}
       </div>
     </LayoutWrapper>
-  );
+  )
 }
