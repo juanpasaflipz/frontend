@@ -6,56 +6,53 @@ import {
   Star,
   Zap,
   Shield,
-  Users,
-  BarChart3,
   ArrowRight,
-  Menu,
-  Bot,
   Sparkles,
-  Globe,
-  TrendingUp,
-  Brain,
-  Layers,
+  Rocket,
+  Lock,
+  HeartHandshake,
+  Gauge,
+  ChevronRight,
 } from "lucide-react"
 import Link from "next/link"
 import { LayoutWrapper } from "@/components/layout-wrapper"
 
 const FEATURES = [
   {
-    icon: Bot,
-    title: "AI-Powered Prompts",
-    description: "Access thousands of professionally crafted prompts optimized for ChatGPT, Claude, and other AI models.",
-    color: "blue"
+    icon: Rocket,
+    title: "Lightning Fast",
+    description: "Deploy prompts instantly with our optimized infrastructure. Get results in milliseconds, not minutes.",
+    gradient: "from-violet-600 to-indigo-600"
   },
   {
-    icon: Users,
+    icon: Lock,
+    title: "Secure by Default",
+    description: "Enterprise-grade security with end-to-end encryption, SOC2 compliance, and granular permissions.",
+    gradient: "from-cyan-600 to-blue-600"
+  },
+  {
+    icon: HeartHandshake,
     title: "Community Driven",
-    description: "Join a thriving community of prompt engineers sharing their best work and learning together.",
-    color: "green"
+    description: "Join thousands of creators sharing knowledge, best practices, and innovative prompt engineering techniques.",
+    gradient: "from-pink-600 to-rose-600"
   },
   {
-    icon: TrendingUp,
+    icon: Gauge,
     title: "Performance Analytics",
-    description: "Track your prompt performance with detailed analytics and insights to improve results.",
-    color: "purple"
+    description: "Track usage, measure effectiveness, and optimize your prompts with detailed analytics and insights.",
+    gradient: "from-amber-600 to-orange-600"
+  },
+  {
+    icon: Zap,
+    title: "API Integration",
+    description: "Seamlessly integrate with your existing tools through our powerful REST and GraphQL APIs.",
+    gradient: "from-emerald-600 to-teal-600"
   },
   {
     icon: Shield,
-    title: "Secure Transactions",
-    description: "Enterprise-grade security ensures your purchases and intellectual property are always protected.",
-    color: "orange"
-  },
-  {
-    icon: Globe,
-    title: "Global Marketplace",
-    description: "Buy and sell prompts globally with support for multiple languages and currencies.",
-    color: "pink"
-  },
-  {
-    icon: Sparkles,
-    title: "Quality Verified",
-    description: "Every prompt is tested and verified by our AI experts to ensure maximum effectiveness.",
-    color: "indigo"
+    title: "Quality Assured",
+    description: "Every prompt is reviewed and tested by our AI experts to ensure consistent, reliable results.",
+    gradient: "from-purple-600 to-pink-600"
   }
 ]
 
@@ -87,46 +84,41 @@ const PRICING_PLANS = [
   {
     name: "Starter",
     price: "$9",
-    period: "per month",
-    description: "Perfect for individuals exploring AI prompts",
+    period: "user/month",
+    description: "Perfect for small teams getting started",
     features: [
-      "Up to 50 prompt purchases",
-      "Basic search and filters",
-      "Community support",
-      "Download history",
-      "Email notifications"
+      "Up to 10 team members",
+      "Basic prompt management",
+      "5GB storage",
+      "Email support"
     ],
     popular: false
   },
   {
     name: "Professional",
-    price: "$29",
-    period: "per month",
-    description: "Best for professionals and small teams",
+    price: "$19",
+    period: "user/month",
+    description: "Best for growing teams and businesses",
     features: [
-      "Unlimited prompt purchases",
-      "Advanced search and AI recommendations",
-      "Priority support",
-      "API access",
-      "Team collaboration (up to 5 users)",
-      "Analytics dashboard",
-      "Early access to new prompts"
+      "Up to 50 team members",
+      "Advanced prompt management",
+      "AI automation features",
+      "100GB storage",
+      "Priority support"
     ],
     popular: true
   },
   {
     name: "Enterprise",
-    price: "$99",
-    period: "per month",
-    description: "For organizations with advanced needs",
+    price: "$39",
+    period: "user/month",
+    description: "For large organizations with advanced needs",
     features: [
-      "Everything in Professional",
       "Unlimited team members",
-      "Custom prompt development",
-      "Dedicated account manager",
-      "SSO integration",
-      "Advanced security features",
-      "SLA guarantee"
+      "Enterprise-grade security",
+      "Advanced analytics",
+      "Unlimited storage",
+      "24/7 dedicated support"
     ],
     popular: false
   }
@@ -136,231 +128,173 @@ export default function HomePage() {
   return (
     <LayoutWrapper>
       {/* Hero Section */}
-<<<<<<< HEAD
-      <section className="relative overflow-hidden py-32 lg:py-48">
-        {/* Background Elements */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-blue-950/20 dark:via-background dark:to-purple-950/20" />
-          <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-600/20 blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-gradient-to-tr from-purple-400/20 to-pink-600/20 blur-3xl" />
-        </div>
+      <section className="relative overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800" />
         
-        <div className="container relative z-10">
-          <div className="mx-auto max-w-4xl text-center">
-            <Badge variant="secondary" className="mb-10 px-6 py-3">
-              <Sparkles className="mr-2 h-3.5 w-3.5" />
-              Now with AI-powered deployment
-            </Badge>
-            
-            <h1 className="mb-10 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              Build and Deploy{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Faster Than Ever
-              </span>
-            </h1>
-            
-            <p className="mb-16 text-lg text-muted-foreground sm:text-xl max-w-3xl mx-auto leading-relaxed">
-              The modern development platform that helps teams ship better software faster. 
-              Deploy instantly, scale automatically, and monitor everything.
-            </p>
-            
-            <div className="flex flex-col gap-6 sm:flex-row sm:justify-center mb-20">
-              <Button size="lg" className="group px-8 py-4 text-lg">
-                Get Started Free
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button size="lg" variant="outline" className="group px-8 py-4 text-lg">
-                <Play className="mr-2 h-4 w-4" />
-                Watch Demo
-              </Button>
-=======
-      <section className="py-40 md:py-56 lg:py-72 bg-gradient-blue-indigo">
-        <div className="container px-6 md:px-8 lg:px-12">
-          <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-center">
-            <div className="space-y-12">
-              <div className="space-y-8">
-                <Badge variant="secondary" className="w-fit">
-                  <Sparkles className="mr-2 h-3.5 w-3.5" />
-                  Marketplace for AI Excellence
-                </Badge>
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                  Buy & Sell
-                  <span className="text-primary"> AI Prompts</span>
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 bg-grid-gray-900/[0.04] dark:bg-grid-gray-100/[0.02]" />
+        
+        {/* Gradient orbs */}
+        <div className="absolute top-0 -left-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
+        <div className="absolute top-0 -right-40 w-80 h-80 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-32 left-20 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+        
+        <div className="relative py-24 sm:py-32 lg:py-40">
+          <div className="container px-4 md:px-6">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="space-y-8">
+              <div className="inline-flex items-center rounded-full border px-4 py-1.5 text-xs font-medium transition-colors bg-gradient-to-r from-indigo-50 to-purple-50 border-indigo-200 dark:from-gray-800 dark:to-gray-700 dark:border-gray-600">
+                <Sparkles className="mr-2 h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" />
+                <span className="text-gray-900 dark:text-gray-100">Introducing PromptMarket 2.0</span>
+                <ChevronRight className="ml-1 h-3.5 w-3.5 text-gray-500" />
+              </div>
+              
+              <div className="space-y-4">
+                <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
+                  The AI Prompt
+                  <span className="block">Marketplace</span>
                 </h1>
-                <p className="text-xl text-muted-foreground max-w-[600px]">
-                  Discover thousands of high-quality prompts or monetize your prompt engineering skills. 
-                  The premier marketplace for ChatGPT, Claude, and Midjourney prompts.
+                <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-light">
+                  Buy and sell premium AI prompts. Accelerate your workflow with 
+                  battle-tested templates for ChatGPT, Claude, and Midjourney.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-6 mt-4">
-                <Button size="lg" className="text-lg px-8">
-                  Browse Prompts
-                  <ArrowRight className="ml-2 h-5 w-5" />
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  size="lg" 
+                  className="text-base px-8 py-6 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-lg shadow-indigo-500/25" 
+                  asChild
+                >
+                  <Link href="/marketplace">
+                    Explore Marketplace
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8">
-                  Start Selling
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="text-base px-8 py-6 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800"
+                >
+                  Start Selling Today
                 </Button>
               </div>
 
-              <div className="flex items-center space-x-8 text-sm text-muted-foreground mt-8">
+              <div className="flex flex-wrap gap-8 justify-center text-sm text-gray-600 dark:text-gray-400 pt-8">
                 <div className="flex items-center space-x-2">
-                  <Check className="h-4 w-4 text-green-500" />
-                  <span>10,000+ Prompts</span>
+                  <div className="flex -space-x-2">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 border-2 border-white dark:border-gray-900" />
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 border-2 border-white dark:border-gray-900" />
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 border-2 border-white dark:border-gray-900" />
+                  </div>
+                  <span className="font-medium">50k+ Active Users</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Check className="h-4 w-4 text-green-500" />
-                  <span>Verified Quality</span>
+                  <Star className="h-4 w-4 text-yellow-500 fill-current" />
+                  <span className="font-medium">4.9/5 Average Rating</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Check className="h-4 w-4 text-green-500" />
-                  <span>Instant Download</span>
-                </div>
-              </div>
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
-            </div>
-
-            <div className="relative mt-8 lg:mt-12">
-              <div className="grid grid-cols-2 gap-8 lg:gap-10 items-start">
-                <div className="space-y-8">
-                  <Card className="shadow-large hover:shadow-xl transition-shadow h-full flex flex-col">
-                    <CardHeader>
-                      <Badge className="w-fit mb-2">Marketing</Badge>
-                      <CardTitle className="text-lg">Social Media Strategy</CardTitle>
-                      <CardDescription>Generate engaging content calendars</CardDescription>
-                    </CardHeader>
-                    <CardContent className="mt-auto">
-                      <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold">$19</span>
-                        <div className="flex items-center">
-                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          <span className="ml-1 text-sm">4.9</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <Card className="shadow-large hover:shadow-xl transition-shadow h-full flex flex-col">
-                    <CardHeader>
-                      <Badge className="w-fit mb-2">Development</Badge>
-                      <CardTitle className="text-lg">Code Review Assistant</CardTitle>
-                      <CardDescription>Automated code analysis prompts</CardDescription>
-                    </CardHeader>
-                    <CardContent className="mt-auto">
-                      <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold">$29</span>
-                        <div className="flex items-center">
-                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          <span className="ml-1 text-sm">5.0</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-                <div className="space-y-8 mt-12 lg:mt-16">
-                  <Card className="shadow-large hover:shadow-xl transition-shadow h-full flex flex-col">
-                    <CardHeader>
-                      <Badge className="w-fit mb-2">Writing</Badge>
-                      <CardTitle className="text-lg">Blog Post Generator</CardTitle>
-                      <CardDescription>SEO-optimized content creation</CardDescription>
-                    </CardHeader>
-                    <CardContent className="mt-auto">
-                      <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold">$15</span>
-                        <div className="flex items-center">
-                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          <span className="ml-1 text-sm">4.8</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <Card className="shadow-large hover:shadow-xl transition-shadow h-full flex flex-col">
-                    <CardHeader>
-                      <Badge className="w-fit mb-2">Business</Badge>
-                      <CardTitle className="text-lg">Sales Email Templates</CardTitle>
-                      <CardDescription>Convert leads with AI precision</CardDescription>
-                    </CardHeader>
-                    <CardContent className="mt-auto">
-                      <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold">$24</span>
-                        <div className="flex items-center">
-                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          <span className="ml-1 text-sm">4.7</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <Shield className="h-4 w-4 text-green-500" />
+                  <span className="font-medium">Secure Transactions</span>
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Showcase cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 max-w-5xl mx-auto">
+            <Card className="group relative overflow-hidden border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 to-indigo-600/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <CardHeader className="relative">
+                <Badge className="w-fit mb-2 bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-300">Popular</Badge>
+                <CardTitle className="text-lg">GPT-4 Code Review</CardTitle>
+                <CardDescription>Professional code analysis and optimization suggestions</CardDescription>
+              </CardHeader>
+              <CardContent className="relative">
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold">$29</span>
+                  <div className="flex items-center space-x-1">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-medium">4.9</span>
+                    <span className="text-sm text-gray-500">(1.2k)</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="group relative overflow-hidden border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 md:-mt-4">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <CardHeader className="relative">
+                <Badge className="w-fit mb-2 bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300">New</Badge>
+                <CardTitle className="text-lg">Marketing Copy Pro</CardTitle>
+                <CardDescription>High-converting sales copy and email templates</CardDescription>
+              </CardHeader>
+              <CardContent className="relative">
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold">$19</span>
+                  <div className="flex items-center space-x-1">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-medium">5.0</span>
+                    <span className="text-sm text-gray-500">(847)</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="group relative overflow-hidden border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-600/10 to-rose-600/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <CardHeader className="relative">
+                <Badge className="w-fit mb-2 bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-300">Trending</Badge>
+                <CardTitle className="text-lg">Midjourney Master</CardTitle>
+                <CardDescription>Create stunning AI art with optimized prompts</CardDescription>
+              </CardHeader>
+              <CardContent className="relative">
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold">$24</span>
+                  <div className="flex items-center space-x-1">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-medium">4.8</span>
+                    <span className="text-sm text-gray-500">(2.3k)</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
         </div>
       </section>
 
       {/* Features Section */}
-<<<<<<< HEAD
-      <section className="py-32 lg:py-48">
-        <div className="container">
-          <div className="mx-auto max-w-2xl text-center mb-24">
-            <h2 className="mb-8 text-3xl font-bold sm:text-4xl">
-              Everything you need to succeed
-=======
-      <section id="features" className="py-40 md:py-56 lg:py-72">
-        <div className="container px-6 md:px-8 lg:px-12">
-          <div className="text-center space-y-10 mb-32">
-            <Badge variant="outline" className="w-fit mx-auto">
-              Features
-            </Badge>
+      <section id="features" className="py-24 sm:py-32">
+        <div className="container px-4 md:px-6">
+          <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Why choose our marketplace?
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
+              Built for modern creators
             </h2>
-<<<<<<< HEAD
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Powerful features designed to help you build, deploy, and scale your applications with confidence.
-=======
-            <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
-              Everything you need to discover, purchase, and sell high-quality AI prompts in one platform.
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Everything you need to create, share, and monetize AI prompts in one powerful platform.
             </p>
           </div>
-<<<<<<< HEAD
-          
-          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-=======
 
-          <div className="grid gap-12 lg:gap-16 sm:grid-cols-2 lg:grid-cols-3">
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((feature) => {
               const Icon = feature.icon
-              const colorClasses = {
-                blue: "bg-blue-100 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400",
-                green: "bg-green-100 text-green-600 dark:bg-green-900/20 dark:text-green-400",
-                purple: "bg-purple-100 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400",
-                orange: "bg-orange-100 text-orange-600 dark:bg-orange-900/20 dark:text-orange-400",
-                pink: "bg-pink-100 text-pink-600 dark:bg-pink-900/20 dark:text-pink-400",
-                indigo: "bg-indigo-100 text-indigo-600 dark:bg-indigo-900/20 dark:text-indigo-400"
-              }
               return (
-<<<<<<< HEAD
-                <Card key={feature.title} className="p-10 border-0 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white">
-                    <Icon className="h-7 w-7" />
-                  </div>
-                  <h3 className="mb-4 text-lg font-semibold">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-=======
-                <Card key={feature.title} className="border-0 shadow-soft hover:shadow-large transition-shadow">
-                  <CardHeader>
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-lg ${colorClasses[feature.color as keyof typeof colorClasses]}`}>
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <CardTitle>{feature.title}</CardTitle>
-                    <CardDescription>
-                      {feature.description}
-                    </CardDescription>
-                  </CardHeader>
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
-                </Card>
+                <div key={feature.title} className="group relative">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-200" />
+                  <Card className="relative h-full border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
+                    <CardHeader>
+                      <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${feature.gradient} text-white shadow-lg mb-4`}>
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <CardTitle className="text-xl">{feature.title}</CardTitle>
+                      <CardDescription className="text-base">
+                        {feature.description}
+                      </CardDescription>
+                    </CardHeader>
+                  </Card>
+                </div>
               )
             })}
           </div>
@@ -368,39 +302,39 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-40 md:py-56 lg:py-72 bg-muted/30">
-        <div className="container px-6 md:px-8 lg:px-12">
-          <div className="text-center space-y-10 mb-32">
-            <Badge variant="outline" className="w-fit mx-auto">
-              Testimonials
-            </Badge>
+      <section id="testimonials" className="py-24 sm:py-32 bg-gray-50 dark:bg-gray-900/50">
+        <div className="container px-4 md:px-6">
+          <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Trusted by prompt engineers worldwide
+              Trusted by 50,000+ creators
             </h2>
-            <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
-              See what our community has to say about their experience with our marketplace.
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Join the community of creators who are transforming their work with AI prompts.
             </p>
           </div>
 
-          <div className="grid gap-12 lg:gap-16 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             {TESTIMONIALS.map((testimonial) => (
-              <Card key={testimonial.name} className="border-0 shadow-soft">
+              <Card key={testimonial.name} className="border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
-                  <div className="flex mb-4">
+                  <div className="flex mb-4 space-x-1">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <blockquote className="text-muted-foreground mb-4">
+                  <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
                     "{testimonial.content}"
-                  </blockquote>
+                  </p>
                   <div className="flex items-center space-x-3">
-                    <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white font-semibold text-sm">
-                      {testimonial.avatar}
+                    <div className="relative">
+                      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white font-semibold text-sm">
+                        {testimonial.avatar}
+                      </div>
+                      <div className="absolute -bottom-1 -right-1 h-3.5 w-3.5 bg-green-400 rounded-full border-2 border-white dark:border-gray-800" />
                     </div>
                     <div>
-                      <div className="font-semibold">{testimonial.name}</div>
-                      <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                      <div className="font-semibold text-gray-900 dark:text-gray-100">{testimonial.name}</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</div>
                     </div>
                   </div>
                 </CardContent>
@@ -411,220 +345,108 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Section */}
-<<<<<<< HEAD
-      <section className="py-32 lg:py-48 bg-muted/30">
-        <div className="container">
-          <div className="mx-auto max-w-2xl text-center mb-24">
-            <h2 className="mb-8 text-3xl font-bold sm:text-4xl">
-=======
-      <section id="pricing" className="py-40 md:py-56 lg:py-72">
-        <div className="container px-6 md:px-8 lg:px-12">
-          <div className="text-center space-y-10 mb-32">
-            <Badge variant="outline" className="w-fit mx-auto">
-              Pricing
-            </Badge>
+      <section id="pricing" className="py-24 sm:py-32">
+        <div className="container px-4 md:px-6">
+          <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
               Simple, transparent pricing
             </h2>
-<<<<<<< HEAD
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Choose the perfect plan for your needs. Upgrade or downgrade at any time.
-=======
-            <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
-              Choose the perfect plan for your needs. All plans include a 14-day free trial.
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Start free and scale as you grow. No hidden fees, no surprises.
             </p>
           </div>
-<<<<<<< HEAD
-          
-          <div className="grid gap-12 lg:grid-cols-3 max-w-5xl mx-auto">
-=======
 
-          <div className="grid gap-12 lg:gap-16 lg:grid-cols-3">
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
+          <div className="grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto">
             {PRICING_PLANS.map((plan) => (
               <Card 
                 key={plan.name} 
-<<<<<<< HEAD
-                className={`relative p-10 ${plan.popular ? 'border-blue-500 shadow-lg scale-105' : ''}`}
-=======
-                className={`relative border-2 ${plan.popular ? 'border-primary shadow-large scale-105' : ''}`}
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
+                className={`relative ${plan.popular ? 'border-2 border-indigo-500 shadow-xl scale-105' : 'border-gray-200 dark:border-gray-700'}`}
               >
                 {plan.popular && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary">
-                    Most Popular
-                  </Badge>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <Badge className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-1.5">
+                      Most Popular
+                    </Badge>
+                  </div>
                 )}
                 
-<<<<<<< HEAD
-                <div className="text-center mb-10">
-                  <h3 className="text-xl font-semibold mb-4">{plan.name}</h3>
-                  <div className="mb-4">
-                    <span className="text-3xl font-bold">{plan.price}</span>
-                    <span className="text-muted-foreground">/{plan.period}</span>
-=======
-                <CardHeader>
+                <CardHeader className="space-y-4 pt-8">
                   <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                  <CardDescription>{plan.description}</CardDescription>
-                  <div className="text-4xl font-bold">
-                    {plan.price}
-                    <span className="text-lg font-normal text-muted-foreground">/{plan.period}</span>
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
+                  <CardDescription className="text-base">{plan.description}</CardDescription>
+                  <div className="pt-4">
+                    <span className="text-5xl font-bold">{plan.price}</span>
+                    <span className="text-gray-600 dark:text-gray-400">/{plan.period}</span>
                   </div>
-<<<<<<< HEAD
-                  <p className="text-sm text-muted-foreground">{plan.description}</p>
-                </div>
-                
-                <ul className="space-y-5 mb-10">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center">
-                      <Check className="h-4 w-4 text-green-500 mr-4 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <Button 
-                  className={`w-full py-3 ${plan.popular ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700' : ''}`}
-                  variant={plan.popular ? 'default' : 'outline'}
-                >
-                  Get Started
-                </Button>
-=======
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <Button className="w-full" variant={plan.popular ? 'default' : 'outline'}>
-                    Start Free Trial
+                <CardContent className="space-y-6">
+                  <Button 
+                    className={`w-full ${plan.popular ? 'bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700' : ''}`} 
+                    variant={plan.popular ? 'default' : 'outline'}
+                    size="lg"
+                  >
+                    Get Started
                   </Button>
                   <ul className="space-y-3">
                     {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-center">
-                        <Check className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
+                      <li key={feature} className="flex items-start space-x-3">
+                        <Check className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </CardContent>
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-<<<<<<< HEAD
-      {/* Testimonials Section */}
-      <section className="py-32 lg:py-48">
-        <div className="container">
-          <div className="mx-auto max-w-2xl text-center mb-24">
-            <h2 className="mb-8 text-3xl font-bold sm:text-4xl">
-              Loved by developers worldwide
-=======
       {/* Final CTA Section */}
-      <section className="py-40 md:py-56 lg:py-72 bg-primary text-primary-foreground">
-        <div className="container px-4 md:px-6 text-center">
-          <div className="space-y-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Ready to unlock the power of AI?
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
-            </h2>
-<<<<<<< HEAD
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              See what our customers have to say about their experience with our platform.
-=======
-            <p className="text-xl opacity-90">
-              Join thousands of creators and businesses who are already using our marketplace to 
-              supercharge their AI workflows. Start exploring today.
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
-            </p>
-<<<<<<< HEAD
-          </div>
-          
-          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-            {TESTIMONIALS.map((testimonial) => (
-              <Card key={testimonial.name} className="p-10">
-                <div className="flex items-center mb-8">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                
-                <p className="text-muted-foreground mb-8 leading-relaxed">"{testimonial.content}"</p>
-                
-                <div className="flex items-center">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold text-sm mr-4">
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm">{testimonial.name}</p>
-                    <p className="text-xs text-muted-foreground">{testimonial.role}</p>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-32 lg:py-48">
-        <div className="container">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-16 text-center text-white md:p-24">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0" style={{
-                backgroundImage: `radial-gradient(circle at 25% 25%, white 1px, transparent 1px), radial-gradient(circle at 75% 75%, white 1px, transparent 1px)`,
-                backgroundSize: '40px 40px'
-              }} />
-=======
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="text-lg px-8">
-                Browse Marketplace
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-lg px-8 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
-              >
-                Become a Seller
-              </Button>
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
-            </div>
-<<<<<<< HEAD
-            
-            <div className="relative max-w-3xl mx-auto">
-              <h2 className="mb-8 text-3xl font-bold sm:text-4xl">
-                Ready to transform your development workflow?
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600" />
+        <div className="absolute inset-0 bg-grid-white/[0.05]" />
+        
+        <div className="relative py-24 sm:py-32">
+          <div className="container px-4 md:px-6 text-center">
+            <div className="space-y-8 max-w-3xl mx-auto">
+              <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-white">
+                Ready to accelerate with AI?
               </h2>
-              <p className="mb-12 text-lg opacity-90 leading-relaxed">
-                Join thousands of developers who have already made the switch to faster, more reliable deployments.
+              <p className="text-xl text-white/90 max-w-2xl mx-auto">
+                Join thousands of creators and businesses using PromptMarket to 10x their productivity.
               </p>
-              
-              <div className="flex flex-col gap-6 sm:flex-row sm:justify-center">
-                <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg">
-                  Start Free Trial
-                  <ChevronRight className="ml-2 h-4 w-4" />
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-6 text-base shadow-xl"
+                  asChild
+                >
+                  <Link href="/marketplace">
+                    Get Started Free
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-4 text-lg">
-                  Contact Sales
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white/10 px-8 py-6 text-base bg-transparent"
+                >
+                  Book a Demo
                 </Button>
-=======
-            <div className="flex items-center justify-center space-x-8 text-sm opacity-75">
-              <div className="flex items-center space-x-2">
-                <Check className="h-4 w-4" />
-                <span>10,000+ Prompts</span>
->>>>>>> 2ceca890dc5a77b49120b1d17dec4bb9dd40d6c3
               </div>
-              <div className="flex items-center space-x-2">
-                <Check className="h-4 w-4" />
-                <span>Instant Access</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Check className="h-4 w-4" />
-                <span>Money-back Guarantee</span>
+              <div className="flex flex-wrap gap-6 justify-center text-sm text-white/80 pt-8">
+                <div className="flex items-center space-x-2">
+                  <Check className="h-5 w-5" />
+                  <span>Free to start</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Check className="h-5 w-5" />
+                  <span>No credit card required</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Check className="h-5 w-5" />
+                  <span>Cancel anytime</span>
+                </div>
               </div>
             </div>
           </div>

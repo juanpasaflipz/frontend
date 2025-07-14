@@ -340,3 +340,83 @@ li {
 .dark .bg-gradient-blue-indigo {
   background: linear-gradient(to bottom right, hsl(217 91% 10% / 0.2), hsl(226 91% 10% / 0.2));
 }
+
+/* Grid pattern background */
+.bg-grid-gray-900\/\[0\.04\] {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgb(17 24 39 / 0.04) 1px,
+    rgb(17 24 39 / 0.04) 40px
+  ),
+  repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 1px,
+    rgb(17 24 39 / 0.04) 1px,
+    rgb(17 24 39 / 0.04) 40px
+  );
+}
+
+.dark .bg-grid-gray-100\/\[0\.02\] {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgb(243 244 246 / 0.02) 1px,
+    rgb(243 244 246 / 0.02) 40px
+  ),
+  repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 1px,
+    rgb(243 244 246 / 0.02) 1px,
+    rgb(243 244 246 / 0.02) 40px
+  );
+}
+
+.bg-grid-white\/\[0\.05\] {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgb(255 255 255 / 0.05) 1px,
+    rgb(255 255 255 / 0.05) 40px
+  ),
+  repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 1px,
+    rgb(255 255 255 / 0.05) 1px,
+    rgb(255 255 255 / 0.05) 40px
+  );
+}
+
+/* Blob animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
